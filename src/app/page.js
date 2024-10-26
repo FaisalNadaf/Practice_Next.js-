@@ -1,9 +1,20 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-export default function Home() 
-{
+export default function Home() {
 	const route = useRouter();
+
+	const [data, setData] = useState([]);
+	async function userData() {
+		let responce = await fetch("https://dummyjson.com/users");
+		let jsonData = responce.json();
+		console.log(jsonData);
+	}
+	useEffect(() => {
+		userData();
+	}, []);
+
 	return (
 		<>
 			<div className="flex h-screen w-screen items-center justify-center">

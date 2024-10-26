@@ -1,9 +1,22 @@
-import React from 'react'
+"use client"
+import { useRouter } from "next/navigation";
+import React from "react";
 
 const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+	const route = useRouter();
+	return (
+		<div>
+			<div>Home Page</div>
+			<button
+				onClick={() => {
+					route.push("/");
+				}}
+				className="m-2 px4 py-2 bg-gray-400 w-48 h-18 border rounded-xl"
+			>
+				Back
+			</button>
+		</div>
+	);
+};
 
-export default HomePage
+export default HomePage;
